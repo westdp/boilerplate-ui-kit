@@ -10,40 +10,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout репозиторій
+      # 1️⃣ Клонуємо репозиторій
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # потрібно для git commit/push
+          fetch-depth: 0
 
-      # 2. Встановлюємо Node.js і додаємо pnpm
+      # 2️⃣ Встановлюємо Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20 # або твоя версія
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm@8
+      # 3️⃣ Встановлюємо pnpm офіційно
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false # ми самі викличемо install
 
-      # 3. Ставимо залежності
+      # 4️⃣ Ставимо залежності
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      # 4. Збираємо бібліотеку
-      - name: Build library
+      # 5️⃣ Збираємо бібліотеку
+      - name: Build UI Kit
         run: pnpm build
 
-      # 5. Комітимо dist/, якщо він змінився
-      - name: Commit and push dist/
+      # 6️⃣ Коммітимо dist/, якщо є зміни
+      - name: Commit and Push dist/
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           git add dist -f
           if git diff --cached --quiet; then
             echo "✅ No changes in dist/"
           else
-            git commit -m "ci: update dist [auto]"
+            git commit -m "ci: build dist [skip ci]"
             git push origin master
-          fi
