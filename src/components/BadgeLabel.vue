@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 
-export type LabelType = 'success' | 'error' | 'info' | 'default';
+export type BadgeLabelType = 'success' | 'error' | 'info' | 'default';
 
 export default defineComponent({
   props: {
@@ -10,7 +10,7 @@ export default defineComponent({
       required: true,
     },
     status: {
-      type: String as PropType<LabelType>,
+      type: String as PropType<BadgeLabelType>,
       default: 'default',
     }
   },
