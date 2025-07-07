@@ -18,7 +18,8 @@
     "dev": "vite",
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "preview": "vite preview",
-    "check": "vue-tsc --noEmit"
+    "check": "vue-tsc --noEmit",
+    "postinstall": "vite build"
   },
   "peerDependencies": {
     "vue": "^3.0.0",
