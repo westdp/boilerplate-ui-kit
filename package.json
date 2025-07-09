@@ -1,36 +1,26 @@
 {
   "name": "@boilerplate/ui-kit",
   "version": "1.0.0",
-  "description": "Boilerplate UI Library (Vue 3 + Vuetify)",
-  "main": "./dist/boilerplate-ui-kit.umd.js",
-  "module": "./dist/boilerplate-ui-kit.es.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/boilerplate-ui-kit.es.js",
-      "require": "./dist/boilerplate-ui-kit.umd.js"
-    }
-  },
-  "files": [
-    "dist"
-  ],
+  "type": "module",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
-    "preview": "vite preview",
-    "check": "vue-tsc --noEmit",
-    "postinstall": "vite build"
+    "build": "vite build",
+    "gen": "plop"
+  },
+  "devDependencies": {
+    "plop": "^3.1.1",
+    "vite": "^5.0.0",
+    "vue": "^3.4.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite-plugin-vuetify": "^2.0.0",
+    "sass": "^1.69.0",
+    "vuetify": "^3.6.0",
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "vue": "3.5.17",
-    "vuetify": "3.8.12"
+    "vuetify": "^3.6.0"
   },
-  "dependencies": {
-    "vite": "6.3.5",
-    "@vitejs/plugin-vue": "5.2.4",
-    "sass": "1.89.2",
-    "typescript": "5.8.3",
-    "vite-plugin-vuetify": "2.1.1",
-    "vue-tsc": "2.2.12"
-  }
+  "dependencies": {}
 }

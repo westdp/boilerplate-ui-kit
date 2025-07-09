@@ -1,7 +1,5 @@
-# загальні винятки
+.idea
+.vite
 node_modules
 dist
-.idea
-!.github
-# але дозволяємо dist
-!dist
+/playground/node_modules

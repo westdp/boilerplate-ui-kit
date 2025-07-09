@@ -1,23 +1,38 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vuetify from 'vite-plugin-vuetify'
+import path from 'path'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    vuetify({ autoImport: true }),
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve('./src'),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/styles/_variables.scss";`
+      }
+    }
+  },
   build: {
     lib: {
-      entry: 'src/index.ts',
+      entry: './src/index.ts',
       name: 'BoilerplateUiKit',
-      formats: ['es', 'umd'],
-      fileName: (format) => `boilerplate-ui-kit.${format}.js`
+      fileName: (format) => `boilerplate-ui-kit.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue', 'vuetify'],
+      external: ['vue'],
       output: {
         globals: {
           vue: 'Vue',
-          vuetify: 'Vuetify'
-        }
-      }
-    }
-  }
-});
+        },
+      },
+    },
+  },
+})
