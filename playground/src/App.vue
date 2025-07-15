@@ -1,22 +1,121 @@
 <template>
-  <div style="padding: 2rem">
-    <UiButton label="Primary Button" variant="primary"/>
-    <br>
-    <UiButton label="Secondary Button" variant="secondary"/>
-    <br>
-    <UiBadge label="Success Badge" status="success"/>
-    <br>
-    <v-btn>Hello</v-btn>
+  <v-app>
+    <BpSidebarContainer
+      :nav-items="navItems"
+      title="Playground"
+      :collapsed="isCollapsed"
+      @collapse="isCollapsed = !isCollapsed"
+    />
 
-    <div class="test-container">
-      Text color
-    </div>
-  </div>
+    <v-main>
+      <section style="padding: 20px">
+        <BpButton label="Primary Button" variant="primary"/>
+        <br>
+        <BpButton label="Secondary Button" variant="secondary"/>
+        <br>
+        <BpBadge label="Success Badge" status="success"/>
+        <br>
+        <v-btn>Hello</v-btn>
+
+        <div class="test-container">
+          Text color
+        </div>
+
+        <BpInputControl
+          v-model="inputValue"
+          :is-clearable="true"
+          error-message="This is an error message"
+        />
+
+        <BpPasswordControl
+          v-model="passwordValue"
+        />
+
+        <BpButtonIcon
+          :color="VuetifyColor.SECONDARY"
+          icon="mdi-plus"
+        />
+
+        <BpButtonIcon
+          :color="VuetifyColor.WARNING"
+          icon="mdi-plus"
+          tooltip="Warning message"
+        />
+
+        <BpButtonIcon
+          :color="VuetifyColor.PRIMARY"
+          icon="mdi-plus"
+          :disabled="true"
+        />
+      </section>
+    </v-main>
+  </v-app>
 </template>
 
 <script lang="ts" setup>
-import { UiButton } from '@boilerplate-ui-kit/components/button'
-import { UiBadge } from '@boilerplate-ui-kit/components/badge'
+import { INavigation } from '@boilerplate-ui-kit';
+import { ref } from 'vue';
+import { VuetifyColor } from '@boilerplate-ui-kit/models';
+import {
+  BpBadge,
+  BpButton,
+  BpButtonIcon,
+  BpInputControl,
+  BpPasswordControl,
+  BpSidebarContainer
+} from '@boilerplate-ui-kit/components';
+
+const inputValue = ref<string | null>(null);
+const passwordValue = ref<string | null>(null);
+const isCollapsed = ref<boolean>(false);
+const navItems: INavigation = ref([
+  {
+    id: '1',
+    title: 'Client',
+    name: 'client',
+    url: '/client',
+    items: [],
+    icon: 'mdi-account-tie-hat-outline',
+    active: false,
+  },
+  {
+    id: '2',
+    title: 'Settings',
+    name: 'settings',
+    url: '/settings',
+    items: [],
+    icon: 'mdi-vector-link',
+    active: false,
+  },
+  {
+    id: '3',
+    title: 'Users',
+    name: 'users',
+    url: '/users',
+    items: [
+      {
+        id: '3-1',
+        title: 'User List',
+        name: 'user-list',
+        url: '/users/list',
+        items: [],
+        icon: 'mdi-account-multiple',
+        active: false,
+      },
+      {
+        id: '3-2',
+        title: 'User Profile',
+        name: 'user-profile',
+        url: '/users/profile',
+        items: [],
+        icon: 'mdi-account-circle',
+        active: false,
+      }
+    ],
+    icon: 'mdi-account-group',
+    active: false,
+  },
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -28,5 +127,6 @@ import { UiBadge } from '@boilerplate-ui-kit/components/badge'
   height: 200px;
   background-color: var(--ui-primary);
   color: white;
+  padding: 20px;
 }
 </style>

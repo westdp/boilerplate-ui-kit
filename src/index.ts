@@ -1,3 +1,2 @@
-export { default as BoilerplateUiKit } from './plugin'
-export * from './types'
-export * from './components'
+export * from './types';
+export { default as BoilerplateUiKit } from './plugin';

@@ -6,21 +6,22 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist",
     "gen": "plop"
   },
   "devDependencies": {
-    "plop": "^3.1.1",
-    "vite": "^5.0.0",
-    "vue": "^3.4.0",
     "@vitejs/plugin-vue": "^5.0.0",
-    "vite-plugin-vuetify": "^2.0.0",
+    "plop": "^3.1.1",
     "sass": "^1.69.0",
+    "typescript": "^5.8.3",
+    "vite": "^5.0.0",
+    "vite-plugin-vuetify": "^2.0.0",
+    "vue": "^3.4.0",
+    "vue-tsc": "^3.0.1",
     "vuetify": "^3.6.0",
-    "typescript": "^5.8.3"
+    "vue-router": "4.5.1"
   },
   "peerDependencies": {
     "vuetify": "^3.6.0"
-  },
-  "dependencies": {}
+  }
 }

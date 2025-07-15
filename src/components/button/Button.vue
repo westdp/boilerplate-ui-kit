@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import './button.scss';
-import type { ButtonProps } from './button.types'
+import { ButtonProps } from '@/components'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   disabled: false,

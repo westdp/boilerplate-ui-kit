@@ -1,5 +1,5 @@
 export type BadgeLabelType = 'success' | 'error' | 'info' | 'default';
-export interface BadgeProps {
+export interface IBadgeProps {
   label: string
   status?: BadgeLabelType
 }
