@@ -1,0 +1,37 @@
+.modal {
+  &-container {
+    background-color: white;
+    padding: 24px;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  &-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    word-break: break-word;
+  }
+
+  &-text {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+
+  &-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    position: sticky;
+    bottom: 0;
+    padding: 5px 0;
+    background-color: white;
+  }
+
+  &-fixed-button {
+    min-width: 140px;
+  }
+}

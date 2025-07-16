@@ -1,0 +1,1 @@
+export { default as BpConfirmDialog } from './ConfirmDialog.vue';

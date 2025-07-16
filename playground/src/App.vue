@@ -50,11 +50,13 @@
       </section>
     </v-main>
   </v-app>
+
+  <BpConfirmDialog/>
 </template>
 
 <script lang="ts" setup>
 import { INavigation } from '@boilerplate-ui-kit';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { VuetifyColor } from '@boilerplate-ui-kit/models';
 import {
   BpBadge,
@@ -62,8 +64,10 @@ import {
   BpButtonIcon,
   BpInputControl,
   BpPasswordControl,
-  BpSidebarContainer
+  BpSidebarContainer,
+  BpConfirmDialog,
 } from '@boilerplate-ui-kit/components';
+import { useConfirm } from '@boilerplate-ui-kit/composables';
 
 const inputValue = ref<string | null>(null);
 const passwordValue = ref<string | null>(null);
@@ -116,6 +120,14 @@ const navItems: INavigation = ref([
     active: false,
   },
 ]);
+const confirm = useConfirm();
+
+onMounted(() => {
+  confirm.show({ message: 'Are you sure you want to proceed?', title: 'Confirmation' })
+    .then((result: boolean) => {
+      console.log(result);
+    });
+});
 </script>
 
 <style lang="scss" scoped>
