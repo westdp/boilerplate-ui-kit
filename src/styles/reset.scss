@@ -1,0 +1,167 @@
+.v-main {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.v-text-field .v-input__details {
+  padding-inline: 0 !important;
+  letter-spacing: 0;
+  min-height: 16px;
+  padding-top: 0;
+}
+
+.v-data-table-header__sort-icon {
+  font-size: 16px;
+  color: #B3B3B3;
+  margin-left: 8px;
+}
+
+.v-select .v-field__input,
+.v-autocomplete .v-field__input {
+  min-height: 40px;
+}
+
+.v-textarea {
+  .v-field {
+    padding: 0 !important;
+  }
+
+  .v-field__input {
+    mask-image: none !important;
+  }
+}
+
+.v-checkbox-btn.v-selection-control--density-default {
+  --v-selection-control-size: unset;
+}
+
+.v-checkbox {
+  .v-selection-control {
+    min-height: unset !important;
+  }
+
+  .v-selection-control__input {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 10px;
+  }
+}
+
+.v-date-picker {
+  border-radius: 8px !important;
+
+  .v-date-picker-header {
+    height: auto;
+    padding: 14px;
+  }
+
+  .v-picker-title {
+    display: none;
+  }
+
+  .v-date-picker-header__content {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+.v-card {
+  border-radius: 8px !important;
+}
+
+.v-slide-group__container {
+  background-color: white;
+  border-radius: 4px 4px 0 0;
+}
+
+.v-time-picker__title {
+  display: none;
+}
+
+.v-tab.v-tab.v-btn {
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0 24px;
+}
+
+.v-chip {
+  border-radius: 4px !important;
+}
+
+.v-combobox .v-combobox__selection .v-chip,
+.v-autocomplete .v-autocomplete__selection .v-chip {
+  background-color: var(--ui-blue-light-color);
+  padding: 3px 7px;
+  border-radius: 4px !important;
+  font-size: 14px;
+  color: var(--ui-label-color);
+  height: auto;
+}
+
+.v-chip__underlay {
+  display: none;
+}
+
+.v-combobox .v-combobox__selection {
+  height: inherit;
+}
+
+.v-autocomplete__selection {
+  height: inherit !important;
+}
+
+.v-autocomplete .v-field__input {
+  opacity: 1 !important;
+}
+
+.v-time-picker-controls__time__btn {
+  font-size: 25px !important;
+}
+
+.v-time-picker {
+  padding: 0 24px 15px !important;
+}
+
+.v-picker-title {
+  display: none;
+}
+
+.v-time-picker-controls {
+  margin-bottom: 17px !important;
+
+  &__time__separator {
+    font-size: 25px !important;
+    height: 40px !important;
+  }
+}
+
+.v-btn:not(.v-date-picker-month__day-btn) {
+  height: 40px !important;
+}
+
+.v-menu > .v-overlay__content > .v-list {
+  background-color: #FFFBFE;
+  padding: 0;
+}
+
+.button-icon.bg-warning,
+.v-btn.bg-warning {
+  color: #C36482 !important;
+  background-color: #FCEDF0 !important;
+}
+
+.v-btn.v-btn--disabled {
+  color: #B3B3B3 !important;
+  background-color: #F2F2F2 !important;
+}
+
+.v-btn--disabled .v-btn__overlay {
+  display: none;
+}
+
+.integer-input .v-field__clearable {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+}

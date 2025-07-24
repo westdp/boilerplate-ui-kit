@@ -1,0 +1,1 @@
+export { default as BpTable } from './Table.vue'

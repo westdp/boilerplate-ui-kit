@@ -6,19 +6,17 @@ import path from 'path'
 export default defineConfig({
   plugins: [
     vue(),
-    vuetify({ autoImport: true }),
+    vuetify({
+      autoImport: true,
+      styles: {
+        configFile: "src/styles/settings.scss",
+      },
+    }),
   ],
   resolve: {
     alias: {
       '@': path.resolve('./src'),
     },
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "@/styles/_variables.scss";`
-      }
-    }
   },
   build: {
     lib: {

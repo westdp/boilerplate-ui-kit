@@ -5,15 +5,15 @@ import EventBus from '../../plugins/event-bus';
 import { VuetifyColor } from '../../models';
 
 const dialogData = reactive({
-  show: true,
+  show: false,
   message: '',
   title: 'Confirm action',
 });
 
 const listener = (data: IBussConfirmDialogData) => {
-  dialogData.show = true
-  dialogData.message = data.message
-  dialogData.title = data.title || 'Confirm action'
+  dialogData.show = true;
+  dialogData.message = data.message;
+  dialogData.title = data.title || 'Confirm action';
 }
 
 EventBus.on('globalConfirmShow', listener);
@@ -26,9 +26,6 @@ const handleAnswer = (answer: boolean) => {
   EventBus.emit('globalConfirmAnswer', answer)
   dialogData.show = false
 }
-
-console.log('ConfirmDialog component loaded');
-
 </script>
 
 <template>

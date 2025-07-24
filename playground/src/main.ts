@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import '@boilerplate-ui-kit/styles/_variables.scss'
+import '@boilerplate-ui-kit/styles/main.scss'
 import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
 

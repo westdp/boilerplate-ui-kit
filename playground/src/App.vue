@@ -47,6 +47,14 @@
           icon="mdi-plus"
           :disabled="true"
         />
+
+        <BpTable
+          :headers="tableHeaders"
+          :items="tableData"
+          :loading="false"
+          :selectable="true"
+        >
+        </BpTable>
       </section>
     </v-main>
   </v-app>
@@ -55,8 +63,8 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted, Ref, ref } from 'vue';
 import { INavigation } from '@boilerplate-ui-kit';
-import { onMounted, ref } from 'vue';
 import { VuetifyColor } from '@boilerplate-ui-kit/models';
 import {
   BpBadge,
@@ -66,12 +74,13 @@ import {
   BpPasswordControl,
   BpSidebarContainer,
   BpConfirmDialog,
+  BpTable,
 } from '@boilerplate-ui-kit/components';
-import { useConfirm } from '@boilerplate-ui-kit/composables';
+import { ITableHeader } from '@boilerplate-ui-kit/models/table';
 
 const inputValue = ref<string | null>(null);
 const passwordValue = ref<string | null>(null);
-const isCollapsed = ref<boolean>(false);
+const isCollapsed = ref<boolean>(true);
 const navItems: INavigation = ref([
   {
     id: '1',
@@ -120,14 +129,16 @@ const navItems: INavigation = ref([
     active: false,
   },
 ]);
-const confirm = useConfirm();
 
-onMounted(() => {
-  confirm.show({ message: 'Are you sure you want to proceed?', title: 'Confirmation' })
-    .then((result: boolean) => {
-      console.log(result);
-    });
-});
+const tableData = ref([
+  { id: 1, name: 'John Doe', age: 30 },
+  { id: 2, name: 'Jane Smith', age: 25 },
+]);
+const tableHeaders: Ref<ITableHeader> = ref([
+  { title: 'ID', key: 'id', sortable: true },
+  { title: 'Name', key: 'name', sortable: true },
+  { title: 'Age', key: 'age' }
+]);
 </script>
 
 <style lang="scss" scoped>
